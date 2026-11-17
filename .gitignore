@@ -1,0 +1,31 @@
+# Data, outputs and checkpoints: ignored by default, except the released ones
+data/*
+!data/fluvial_binary_64x64.h5
+outputs-*/
+!outputs-model-A/
+!outputs-model-B/
+!outputs-model-C/
+!outputs-model-D/
+outputs_*/
+checkpoints/
+checkpoints_*/
+!checkpoints_fluvial_64_rowonly_bigger/
+figures*/
+
+# Minimal example outputs
+minimal_example/out/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python build / cache artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Local Claude Code settings
+.claude/

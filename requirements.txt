@@ -1,0 +1,22 @@
+# Versions from the cluster environment that produced the results (the
+# cluster's requirements.txt), restricted to packages the kept scripts import.
+# Note: torch 2.5.1 has no wheels for Python >= 3.13; the release-preparation
+# test of minimal_example/ ran with newer versions on Python 3.14.
+#
+# CUDA 12.1 build (as on the cluster):
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+# CPU-only build:
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1
+numpy==2.4.3
+scipy==1.17.1
+matplotlib==3.10.9
+tqdm==4.67.3
+h5py==3.16.0
+
+# Notebooks only (paper/*.ipynb, geopard/GEOPARD_fluvial.ipynb).
+# pillow is from the cluster environment; ipython and scikit-learn were not in
+# it, so these two keep the versions from the local release-preparation venv.
+pillow==12.1.1
+ipython==9.18.1
+scikit-learn==1.9.1

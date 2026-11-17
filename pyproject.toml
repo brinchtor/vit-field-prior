@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vit-field-prior"
+version = "1.0.0"
+description = "Vision-transformer priors for categorical spatial fields: training, exact MRF baselines and importance-sampling posterior inference (code accompanying the journal article)."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "The authors" }]
+requires-python = ">=3.10"
+# Lower bounds are the versions in the cluster environment that produced the
+# results (cluster requirements.txt). requirements.txt pins these exact versions.
+dependencies = [
+    "torch>=2.5.1",
+    "numpy>=2.4.3",
+    "scipy>=1.17.1",
+    "matplotlib>=3.10.9",
+    "tqdm>=4.67.3",
+    "h5py>=3.16.0",
+]
+
+[project.optional-dependencies]
+# Needed only for the notebooks (paper/*.ipynb, geopard/GEOPARD_fluvial.ipynb).
+notebooks = [
+    "ipython>=9.18.1",
+    "pillow>=12.1.1",
+    "scikit-learn>=1.9.1",
+]
+
+[tool.setuptools]
+# Every module in common/ is installed as a top-level module, so the existing
+# bare imports (e.g. "from ViT_rectangle import *") resolve from any folder.
+package-dir = { "" = "common" }
+py-modules = [
+    "MH_ViT",
+    "MRF_functions",
+    "MRF_functions_2ndorder",
+    "MRF_functions_2ndorder_aniso",
+    "MRF_tests_2ndorder",
+    "ViT_rectangle",
+    "ViT_rowonly",
+    "ViT_sampling_rectangle",
+    "ViT_sampling_rectangle_GPU",
+    "ViT_sampling_rectangle_debug",
+    "ViT_sampling_rowonly",
+    "attention_maps",
+    "exact_marginals",
+    "exact_marginals_2ndorder_aniso",
+    "getQ",
+    "getQ_2ndorder",
+    "getQ_2ndorder_aniso",
+    "getQ_cond",
+    "masked_summed_MRF",
+    "test_MH",
+    "test_functions",
+    "training_rectangle",
+    "training_rowonly",
+]
